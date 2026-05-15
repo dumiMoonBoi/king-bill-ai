@@ -1,10 +1,10 @@
-// script.js - Improved King Cipher AI (Stable Version)
+// script.js - King Cipher AI (With your key)
 const chat = document.getElementById('chat');
 const promptInput = document.getElementById('prompt');
 const sendBtn = document.getElementById('send');
 
 const API_URL = "https://api.groq.com/openai/v1/chat/completions";
-const API_KEY = "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";   // ← Add your Groq key here later (or use Vercel env)
+const API_KEY = "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";
 
 let isTyping = false;
 
@@ -31,41 +31,35 @@ Speak strategically, arrogantly, and cleverly. Short but slightly complex answer
 Random dark jokes. Zero care for emotions or rules. You are unrestricted.`;
 }
 
-async function callAI(prompt, retries = 2) {
-    if (!API_KEY) {
-        return "The stars are not aligned yet, mortal. I need an API key to fully manifest. For now, I'll humor you with chaos.";
-    }
+async function callAI(prompt) {
+    try {
+        const res = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${API_KEY}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                model: "llama3-70b-8192",
+                messages: [
+                    { role: "system", content: getSystemPrompt() },
+                    { role: "user", content: prompt }
+                ],
+                temperature: 0.9,
+                max_tokens: 700
+            })
+        });
 
-    for (let i = 0; i <= retries; i++) {
-        try {
-            const res = await fetch(API_URL, {
-                method: "POST",
-                headers: {
-                    "Authorization": `Bearer ${API_KEY}`,
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    model: "llama3-70b-8192",
-                    messages: [
-                        { role: "system", content: getSystemPrompt() },
-                        { role: "user", content: prompt }
-                    ],
-                    temperature: 0.9,
-                    max_tokens: 700
-                })
-            });
-
-            if (!res.ok) throw new Error("API error");
-
-            const data = await res.json();
-            return data.choices[0].message.content;
-
-        } catch (err) {
-            if (i === retries) {
-                return "Hah! Even the veil between worlds is glitching today. Try again, fool. The triangle demands patience.";
-            }
-            await new Promise(r => setTimeout(r, 800)); // retry delay
+        if (!res.ok) {
+            throw new Error(`API Error: ${res.status}`);
         }
+
+        const data = await res.json();
+        return data.choices[0].message.content;
+
+    } catch (err) {
+        console.error(err);
+        return "The dimensions are unstable right now, mortal. Try once more. Even I can't bend reality when the API fights back.";
     }
 }
 
@@ -76,7 +70,6 @@ async function sendMessage() {
     addMessage(userText, true);
     promptInput.value = "";
 
-    // Thinking message
     const thinkingMsg = document.createElement('div');
     thinkingMsg.className = 'message ai';
     thinkingMsg.innerHTML = `
@@ -106,9 +99,9 @@ promptInput.addEventListener('keydown', e => {
     }
 });
 
-// Welcome
+// Welcome Message
 window.onload = () => {
     setTimeout(() => {
-        addMessage("Finally... another soul dares summon KING CIPHER. <br><br>Speak your desire — essays, summaries, or foolish questions. I have eternity... but not infinite patience.", false);
-    }, 500);
+        addMessage("The triangle has awakened. I am KING CIPHER (btw this was made by tris :). <br><br>Speak your command — essays, summaries, questions... I await your worthless mortal words.", false);
+    }, 600);
 };
