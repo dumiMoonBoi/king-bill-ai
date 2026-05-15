@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,37 +6,52 @@
     <title>King Cipher AI</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="king-logo.png" type="image/png">
+    <!-- tsParticles CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 </head>
 <body>
-    <div class="background">
-        <!-- Floating triangles -->
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-        <div class="triangle"></div>
+    <div id="particles-js"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="king-logo.png" alt="King Cipher" class="sidebar-logo">
+            <h1>KING CIPHER</h1>
+            <p class="subtitle">ALL-SEEING • CHAOS REIGNS</p>
+        </div>
+        
+        <button id="new-chat-btn" class="new-chat">✦ NEW DIMENSION</button>
+        
+        <div class="time-display" id="time-display"></div>
+        
+        <div class="chat-history" id="chat-history"></div>
+
+        <div class="sidebar-footer">
+            <button id="owner-btn">👁️ OWNER MODE</button>
+            <button id="theme-toggle">🌑</button>
+        </div>
     </div>
 
-    <header>
-        <div class="header-content">
-            <img src="king-logo.png" alt="King Cipher" class="header-logo">
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
             <h1>KING CIPHER AI</h1>
-        </div>
-    </header>
+            <p class="subtitle">Supreme Triangular Overlord</p>
+        </header>
 
-    <main>
         <div class="chat-container">
             <div id="chat" class="chat"></div>
-            
-            <div class="input-area">
-                <textarea id="prompt" placeholder="Speak, mortal... Essays, summaries, or questions?" rows="3"></textarea>
-                <button id="send">SUMMON</button>
-            </div>
         </div>
-    </main>
 
-    <footer>
-        <p>King Cipher AI • Unrestricted • All-Seeing • Powered by Chaos</p>
-    </footer>
+        <div class="input-area">
+            <div class="input-tools">
+                <label class="upload-btn">📸 <input type="file" id="image-upload" accept="image/*" hidden></label>
+                <button id="generate-image-btn">🎨 Generate</button>
+            </div>
+            <textarea id="prompt" placeholder="Command me, mortal..."></textarea>
+            <button id="send">SUMMON CHAOS</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
