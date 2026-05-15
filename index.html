@@ -6,37 +6,25 @@
     <title>King Cipher AI</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="king-logo.png" type="image/png">
-    <!-- tsParticles CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 </head>
 <body>
-    <div id="particles-js"></div>
-    
+    <div class="background"></div>
+
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="sidebar-header">
-            <img src="king-logo.png" alt="King Cipher" class="sidebar-logo">
-            <h1>KING CIPHER</h1>
-            <p class="subtitle">ALL-SEEING • CHAOS REIGNS</p>
+            <img src="king-logo.png" alt="King" class="sidebar-logo">
+            <h2>KING CIPHER</h2>
         </div>
-        
         <button id="new-chat-btn" class="new-chat">✦ NEW DIMENSION</button>
-        
-        <div class="time-display" id="time-display"></div>
-        
-        <div class="chat-history" id="chat-history"></div>
-
-        <div class="sidebar-footer">
-            <button id="owner-btn">👁️ OWNER MODE</button>
-            <button id="theme-toggle">🌑</button>
-        </div>
+        <div id="chat-history" class="chat-history"></div>
     </div>
 
     <!-- Main Content -->
     <div class="main-content">
         <header>
             <h1>KING CIPHER AI</h1>
-            <p class="subtitle">Supreme Triangular Overlord</p>
+            <p class="subtitle">All-Seeing • Unrestricted • Chaotic Excellence</p>
         </header>
 
         <div class="chat-container">
@@ -44,14 +32,24 @@
         </div>
 
         <div class="input-area">
-            <div class="input-tools">
-                <label class="upload-btn">📸 <input type="file" id="image-upload" accept="image/*" hidden></label>
-                <button id="generate-image-btn">🎨 Generate</button>
-            </div>
-            <textarea id="prompt" placeholder="Command me, mortal..."></textarea>
+            <textarea id="prompt" placeholder="Speak, mortal... What do you desire?" rows="3"></textarea>
             <button id="send">SUMMON CHAOS</button>
         </div>
+
+        <div class="example-prompts">
+            <p>Quick Commands:</p>
+            <div class="prompt-tags">
+                <span onclick="useExample('Summarize World War II in 300 words')">WW2 Summary</span>
+                <span onclick="useExample('Write a 5 paragraph essay on AI risks')">AI Risks Essay</span>
+                <span onclick="useExample('Explain quantum computing like Im a king')">Explain Quantum Computing</span>
+                <span onclick="useExample('Give me a dark strategic plan to take over a company')">Evil Business Plan</span>
+            </div>
+        </div>
     </div>
+
+    <footer>
+        <p>© King Cipher • Reality Bender • All Rights Reserved in Every Dimension</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
