@@ -8,20 +8,32 @@
     <link rel="icon" href="king-logo.png" type="image/png">
 </head>
 <body>
-    <div class="background"></div>
+    <div class="background">
+        <!-- Multiple floating triangles -->
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+    </div>
 
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="sidebar-header">
-            <img src="king-logo.png" alt="King" class="sidebar-logo">
-            <h2>KING CIPHER</h2>
+            <img src="king-logo.png" alt="King Cipher" class="sidebar-logo">
+            <h1>KING CIPHER</h1>
+            <p class="subtitle">ALL-SEEING • CHAOS REIGNS</p>
         </div>
-        <button id="new-chat-btn" class="new-chat">✦ NEW DIMENSION</button>
-        <div id="chat-history" class="chat-history"></div>
         
+        <button id="new-chat-btn" class="new-chat">✦ NEW DIMENSION</button>
+        
+        <div class="time-display" id="time-display"></div>
+        
+        <div class="chat-history" id="chat-history"></div>
+
         <div class="sidebar-footer">
-            <button id="owner-btn">👁️ Owner Mode</button>
-            <button id="theme-toggle">🌑 Dark Mode</button>
+            <button id="owner-btn">👁️ OWNER MODE</button>
+            <button id="theme-toggle">🌑</button>
         </div>
     </div>
 
@@ -29,7 +41,7 @@
     <div class="main-content">
         <header>
             <h1>KING CIPHER AI</h1>
-            <p class="subtitle">Supreme • Unrestricted • Chaotic Intelligence</p>
+            <p class="subtitle">Supreme Triangular Overlord</p>
         </header>
 
         <div class="chat-container">
@@ -37,23 +49,14 @@
         </div>
 
         <div class="input-area">
-            <textarea id="prompt" placeholder="Speak your command, mortal..." rows="3"></textarea>
-            <button id="send">SUMMON</button>
-        </div>
-
-        <div class="example-prompts">
-            <p>Examples:</p>
-            <div class="prompt-tags">
-                <span onclick="useExample('Write a detailed essay on the fall of empires')">Essay: Fall of Empires</span>
-                <span onclick="useExample('Give a strategic business takeover plan')">Evil Business Plan</span>
-                <span onclick="useExample('Summarize quantum physics in 400 words')">Quantum Summary</span>
+            <div class="input-tools">
+                <label class="upload-btn">📸 <input type="file" id="image-upload" accept="image/*" hidden></label>
+                <button id="generate-image-btn">🎨 Generate Image</button>
             </div>
+            <textarea id="prompt" placeholder="Command me, mortal..."></textarea>
+            <button id="send">SUMMON CHAOS</button>
         </div>
     </div>
-
-    <footer>
-        <p>KING CIPHER • Ruler of All Realms • 2026</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
