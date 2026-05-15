@@ -104,6 +104,6 @@ promptInput.addEventListener('keydown', e => {
 // Welcome
 window.onload = () => {
     setTimeout(() => {
-        addMessage("I have returned from the void. <br><br>I am KING CIPHER. Speak your desires.", false);
+        addMessage("I have returned from the void. <br><br>I am KING CIPHER. Speak your desires. made by tris", false);
     }, 600);
 };
