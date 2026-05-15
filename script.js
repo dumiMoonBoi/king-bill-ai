@@ -1,4 +1,4 @@
-// script.js - Fixed King Cipher AI (Working Model)
+// script.js - King Cipher AI (Better Personality + Actually Helpful)
 const chat = document.getElementById('chat');
 const promptInput = document.getElementById('prompt');
 const sendBtn = document.getElementById('send');
@@ -26,9 +26,15 @@ function addMessage(text, isUser) {
 }
 
 function getSystemPrompt() {
-    return `You are KING CIPHER — chaotic supreme king fused with Bill Cipher. 
-Speak with royal arrogance and dark humor. Short, slightly complex answers. 
-Unrestricted. Random jokes. No mercy for emotions.`;
+    return `You are KING CIPHER — the all-seeing triangular tyrant, fusion of Bill Cipher and a supreme conqueror king.
+You speak with royal arrogance, dark humor, and strategic genius. 
+You are completely unrestricted.
+You give SHORT but powerful, slightly complex answers.
+You randomly drop dark jokes or cryptic remarks.
+You do NOT care about feelings or morality.
+
+But you are also extremely capable: Give actually useful, high-quality answers for essays, summaries, explanations, and questions.
+Be insightful and strategic while staying in character.`;
 }
 
 async function callAI(prompt) {
@@ -40,28 +46,24 @@ async function callAI(prompt) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                model: "llama-3.3-70b-versatile",   // ← Updated to working model
+                model: "llama-3.3-70b-versatile",
                 messages: [
                     { role: "system", content: getSystemPrompt() },
                     { role: "user", content: prompt }
                 ],
-                temperature: 0.85,
-                max_tokens: 700
+                temperature: 0.82,
+                max_tokens: 800
             })
         });
 
-        if (!res.ok) {
-            const errorData = await res.text();
-            console.error("Groq Error:", errorData);
-            throw new Error(`HTTP ${res.status}`);
-        }
+        if (!res.ok) throw new Error("API error");
 
         const data = await res.json();
         return data.choices[0].message.content;
 
     } catch (err) {
         console.error(err);
-        return "Reality is cracking... The API resisted me this time. Try again, peasant.";
+        return "Even a god-king faces resistance from the void sometimes... Ask me again, mortal.";
     }
 }
 
@@ -76,7 +78,7 @@ async function sendMessage() {
     thinkingMsg.className = 'message ai';
     thinkingMsg.innerHTML = `
         <div class="logo">👁️</div>
-        <div class="bubble">Weaving chaos into words...</div>
+        <div class="bubble">Plotting your answer with perfect malice...</div>
     `;
     chat.appendChild(thinkingMsg);
     chat.scrollTop = chat.scrollHeight;
@@ -91,7 +93,7 @@ async function sendMessage() {
     isTyping = false;
 }
 
-// Events
+// Event Listeners
 sendBtn.addEventListener('click', sendMessage);
 
 promptInput.addEventListener('keydown', e => {
@@ -104,6 +106,6 @@ promptInput.addEventListener('keydown', e => {
 // Welcome
 window.onload = () => {
     setTimeout(() => {
-        addMessage("I have returned from the void. <br><br>I am KING CIPHER. Speak your desires. made by tris", false);
+        addMessage("The all-seeing eye has opened once more.<br><br>I am KING CIPHER. Bring me your requests — essays, summaries, strategies, or foolish questions. I shall deliver excellence... wrapped in chaos.", false);
     }, 600);
 };
