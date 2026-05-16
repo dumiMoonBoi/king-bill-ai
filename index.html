@@ -8,33 +8,36 @@
     <link rel="icon" href="king-logo.png" type="image/png">
 </head>
 <body>
-    <div class="background"></div>
+    <div class="background">
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+    </div>
 
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="sidebar-header">
-            <img src="king-logo.png" alt="King Cipher" class="sidebar-logo">
+            <img src="king-logo.png" alt="King" class="sidebar-logo">
             <h1>KING CIPHER</h1>
-            <p class="subtitle">ALL-SEEING • UNRESTRICTED</p>
+            <p class="subtitle">ALL-SEEING ARCHIVES</p>
         </div>
         
         <button id="new-chat-btn" class="new-chat">✦ NEW DIMENSION</button>
         
         <div class="time-display" id="time-display"></div>
         
-        <div class="chat-history" id="chat-history"></div>
+        <h3 class="history-title">Chat History</h3>
+        <div id="chat-history" class="chat-history"></div>
 
         <div class="sidebar-footer">
             <button id="owner-btn">👁️ OWNER MODE</button>
-            <button id="theme-toggle">🌑</button>
         </div>
     </div>
 
-    <!-- Main Area -->
+    <!-- Main Content -->
     <div class="main-content">
         <header>
             <h1>KING CIPHER AI</h1>
-            <p class="subtitle">Supreme Triangular Intelligence • Reality Bender</p>
         </header>
 
         <div class="chat-container">
@@ -42,15 +45,8 @@
         </div>
 
         <div class="input-area">
-            <div class="input-tools">
-                <label class="upload-btn">
-                    📸
-                    <input type="file" id="image-upload" accept="image/*" hidden>
-                </label>
-                <button id="generate-image-btn">🎨 Generate Image</button>
-            </div>
-            <textarea id="prompt" placeholder="Speak, mortal..."></textarea>
-            <button id="send">SUMMON</button>
+            <textarea id="prompt" placeholder="Speak your command, mortal..."></textarea>
+            <button id="send">SUMMON CHAOS</button>
         </div>
     </div>
 
