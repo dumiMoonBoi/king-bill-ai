@@ -8,7 +8,7 @@ const timeDisplay = document.getElementById('time-display');
 const chatHistoryContainer = document.getElementById('chat-history');
 
 const API_URL = "https://api.groq.com/openai/v1/chat/completions";
-const API_KEY = "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";
+const API_KEY = "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";
 
 let isTyping = false;
 let isOwnerMode = false;
